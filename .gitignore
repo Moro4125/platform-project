@@ -1,0 +1,15 @@
+/.*
+/logs/
+/vendor/
+/temporary/
+composer.phar
+!/.gitignore
+/http/*
+!/http/action
+!/http/admin
+!/http/.htaccess
+!/http/favicon.ico
+!/http/robots.txt
+
+# Add by migration "moro/team-migrations-common:update.vcs.ignore".
+storage/

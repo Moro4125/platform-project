@@ -1,0 +1,11 @@
+User-agent: Googlebot
+Disallow: /admin
+Disallow: /inner
+
+Sitemap: http://localhost/sitemap.xml
+
+User-agent: *
+Disallow: /admin
+Disallow: /inner
+
+Sitemap: http://localhost/sitemap.xml

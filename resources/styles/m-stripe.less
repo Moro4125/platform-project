@@ -1,0 +1,60 @@
+@import url("g-consts");
+
+
+.m-stripe__column() {
+  position: relative;
+  float: left;
+  min-height: 1px;
+
+  & > .b-stripe {
+    margin-left: -@stripe_column_padding;
+    margin-right: -@stripe_column_padding;
+  }
+}
+
+.m-stripe__column_width(@base_size, @port_size, @padding: @stripe_column_padding, @base_delta: 0, @port_delta: 0) when (@base_size = @port_size) {
+  padding-left: @padding;
+  padding-right: @padding;
+  width: @stripe_base_width / @stripe_base_columns * @base_size - 2 * @padding + @base_delta;
+}
+
+.m-stripe__column_width(@base_size, @port_size, @padding: @stripe_column_padding, @base_delta: 0, @port_delta: 0) when (@base_size < @port_size) and (@base_size > 0) and (@port_size > 0) {
+  padding-left: @padding;
+  padding-right: @padding;
+  width: @stripe_base_width / @stripe_base_columns * @base_size - 2 * @padding + @base_delta;
+
+  @media screen and (max-width: @stripe_base_width + @stripe_column_padding * 4) {
+    width: @stripe_port_width / @stripe_port_columns * @port_size - 2 * @padding + @port_delta;
+  }
+}
+
+.m-stripe__column_width(@base_size, @port_size, @padding: @stripe_column_padding, @base_delta: 0, @port_delta: 0) when (@base_size > @port_size) and (@base_size > 0) and (@port_size > 0) {
+  padding-left: @padding;
+  padding-right: @padding;
+  width: @stripe_base_width / @stripe_base_columns * @base_size - 2 * @padding + @base_delta;
+
+  @media screen and (max-width: @stripe_base_width + @stripe_column_padding * 4) {
+    width: @stripe_port_width / @stripe_port_columns * @port_size - 2 * @padding + @port_delta;
+  }
+}
+
+.m-stripe__column_width(@base_size, @port_size, @padding: @stripe_column_padding, @base_delta: 0, @port_delta: 0) when (@base_size = 0) {
+  display: none;
+
+  @media screen and (max-width: @stripe_base_width + @stripe_column_padding * 4) {
+    display: block;
+    padding-left: @padding;
+    padding-right: @padding;
+    width: @stripe_port_width / @stripe_port_columns * @port_size - 2 * @padding + @port_delta;
+  }
+}
+
+.m-stripe__column_width(@base_size, @port_size, @padding: @stripe_column_padding, @base_delta: 0, @port_delta: 0) when (@port_size = 0) {
+  padding-left: @padding;
+  padding-right: @padding;
+  width: @stripe_base_width / @stripe_base_columns * @base_size - 2 * @padding + @base_delta;
+
+  @media screen and (max-width: @stripe_base_width + @stripe_column_padding * 4) {
+    display: none;
+  }
+}

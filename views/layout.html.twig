@@ -1,0 +1,16 @@
+{% extends "doctype.html.twig" %}
+
+
+{# Базовая раскладка страницы: шапка, рабочая область, подвал. #}
+{%- block layout -%}
+	{%- include '@SaxulumBootstrapProvider/flash.html.twig' with {close: true} -%}
+	<div class="b-page__wrapper">
+		{%- block header -%}
+			{{ render_ssi(app.url("inner", {code: "header", theme: theme|default("")})) }}
+		{%- endblock -%}
+		{%- block workspace -%}{%- endblock workspace -%}
+		{%- block footer -%}
+			{{ render_ssi(app.url("inner", {code: "footer", theme: theme|default("")})) }}
+		{%- endblock -%}
+	</div>
+{%- endblock layout -%}

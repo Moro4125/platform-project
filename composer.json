@@ -1,0 +1,72 @@
+{
+  "name": "moro/platform-project",
+  "description": "Empty project for Platform-CMS",
+  "license": "MIT",
+  "type": "project",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Andrey D Morozkin",
+      "email": "andrey.dmitrievich@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-0": {"": "sources/"}
+  },
+  "require": {
+    "php": ">=5.5",
+    "moro/platform-cms": "~2.0",
+    "moro/platform-cms-installer": "~1.0",
+    "leafo/lessphp": "~0.5"
+  },
+  "config": {
+    "component-dir": "http/assets",
+    "component-baseurl": "/assets",
+    "component-styleFilters": {
+      "\\Assetic\\Filter\\LessphpFilter": []
+    },
+    "component-scriptFilters-disabled": {
+      "\\Assetic\\Filter\\GoogleClosure\\CompilerApiFilter": []
+    }
+  },
+  "extra": {
+    "component": {
+      "name": "application",
+      "scripts": [
+        "resources/scripts/analytics.js",
+        "resources/scripts/flash-message.js"
+      ],
+      "styles": [
+        "resources/styles/g-reset.less",
+        "resources/styles/alert.css",
+        "resources/styles/b-*.less",
+        "resources/styles/g-fixes.css"
+      ],
+      "files": [
+        "resources/scripts/*.js",
+        "resources/styles/*.less",
+        "resources/images/*.jpg",
+        "resources/images/*.png",
+        "resources/images/*.gif",
+        "resources/*.html"
+      ],
+      "components/bootstrap": {
+        "scripts": [
+          "js/bootstrap.js"
+        ],
+        "styles": [
+          "css/bootstrap.css",
+          "css/bootstrap-theme.css"
+        ],
+        "files": [
+          "fonts/*",
+          "less/*",
+          "less/mixins/*"
+        ],
+        "shim": {
+          "deps": ["jquery"]
+        }
+      }
+    }
+  }
+}

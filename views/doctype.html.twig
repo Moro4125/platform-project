@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% spaceless %}
+<html prefix="og: http://ogp.me/ns#">
+	<head>
+		<meta charset="utf-8"/>
+		<title>{% block head_title %}{{ title|default(app.request.host) }}{% endblock %}</title>
+		{{- render_ssi(app.url("inner", {code: "head", theme: ""})) -}}
+		{% block head_meta %}
+			<link rel="canonical" href="{{ "//" ~ app.request.httpHost ~ app.request.uri|canonical }}">
+		{% endblock %}
+	</head>
+	<body{% block body_attr %} class="{% block body_class %}b-page{% endblock body_class %}"{% endblock body_attr %}>
+		{{- render_ssi(app.url("inner", {code: "analytics", theme: ""})) -}}
+		{%- block layout %}{% endblock layout -%}
+		{{- render_ssi(app.url("inner", {code: "foot", theme: ""})) -}}
+		{%- block scripts -%}{%- endblock scripts -%}
+	</body>
+</html>
+{% endspaceless %}

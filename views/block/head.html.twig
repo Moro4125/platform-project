@@ -1,0 +1,19 @@
+{% spaceless %}
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=640">
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="/assets/application/resources/scripts/respond.min.js"></script>
+	<![endif]-->
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<script type="text/javascript">
+		{#- Функция кэширования WEB-шрифта в локальном хранилище браузера. -#}
+		{#- Исходная версия функции: resources/protected/web-font-cache.js -#}
+		function fontCache(e,t){var n,r=1,a="function",s=localStorage,c=document.getElementsByTagName("head")[0],o=function(){try{return s.setItem(a,a),s.removeItem(a),typeof XMLHttpRequest==a&&typeof Uint8Array==a}catch(e){return!1}},u=function(){var e=document.createElement("style");e.innerHTML=n,c.appendChild(e)},i=function(e){var t,n,r,a,s,c,o,u,i=new Uint8Array(e),p="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",f=0,l="",d=i.byteLength;do t=i[f++],n=i[f++],r=i[f++],u=t<<16|n<<8|r,a=u>>18&63,s=u>>12&63,c=u>>6&63,o=63&u,l+=p.charAt(a)+p.charAt(s)+p.charAt(c)+p.charAt(o);while(d>f);switch(d%3){case 1:l=l.slice(0,-2)+"==";break;case 2:l=l.slice(0,-1)+"="}return l},p=function(){1>--r&&(s.removeItem(s.getItem(e)||a),s.setItem(t,n),s.setItem(e,t))},f=function(){for(var e,t=/url\((?:"|')?(https?:.*?)(?:"|')?\)/g;e=t.exec(n);)!function(e){var t=new XMLHttpRequest;r++,t.open("GET",e,!0),t.responseType="arraybuffer",t.onreadystatechange=function(){4===t.readyState&&(t.status>=200&&t.status<400&&(n=n.replace(new RegExp("(\"|')?"+e.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g,"\\$&")+"(\"|')?",""),"'data:"+t.getResponseHeader("Content-Type")+";base64,"+i(t.response)+"'")),p())},t.send()}(e[1]);p()};if(o())if(n=s.getItem(t))u();else{var l=new XMLHttpRequest;l.open("GET",t,!0),l.onreadystatechange=function(){4===l.readyState&&(n=l.responseText,u(),setTimeout(f,2016))},l.send()}else n=document.createElement("link"),n.setAttribute("rel","stylesheet"),n.setAttribute("href",t),c.appendChild(n)}
+		{#- Объявление используемых WEB-шрифтов -#}
+		fontCache('Open Sans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300&subset=latin,cyrillic#v11');
+		{#- конец inline скриптов -#}
+	</script>
+	<link rel="stylesheet" href="/assets/application/application-built.css?ver={{ app.build }}">
+{% endspaceless %}
