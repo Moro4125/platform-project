@@ -46,23 +46,14 @@ class ViewContentDecorator extends ViewDecorator
 	 * @var array
 	 */
 	protected static $_map = [
-		'holster'     => ['article_w', 'heading_w'],
-		'pounch'      => ['article_w', 'heading_w'],
-		'accessories' => ['article_w', 'heading_w'],
-		'knife'       => ['article_w', 'heading_w'],
-		'paracord'    => ['article_w', 'heading_w'],
-		'maxpedition' => ['article_e', 'heading_e'],
-		'pistol'      => ['article_h', 'heading_h'],
-		'instructions'=> ['article_h', 'heading_h'],
+		'news'     => ['article', 'heading'],
+		'posts'    => ['article', 'heading'],
 	];
 
 	/**
 	 * @var array
 	 */
 	protected static $_root = [
-		'heading_w' => 'workshop',
-		'heading_e' => 'equipment',
-		'heading_h' => 'handbook',
 	];
 
 	/**
@@ -114,10 +105,14 @@ class ViewContentDecorator extends ViewDecorator
 	 */
 	public function getRootHeading()
 	{
-		if (empty($this->_rootHeading))
+		if (empty($this->_rootHeading) && !empty(self::$_root))
 		{
 			$heading = $this->_entity->getHeading();
-			$this->_rootHeading = self::$_root[self::$_map[$heading][1]];
+
+			if (isset(self::$_root[self::$_map[$heading][1]]))
+			{
+				$this->_rootHeading = self::$_root[self::$_map[$heading][1]];
+			}
 		}
 
 		return $this->_rootHeading;

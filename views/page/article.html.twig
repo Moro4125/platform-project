@@ -1,0 +1,60 @@
+{% extends "layout.html.twig" %}
+
+{%- block workspace -%}
+
+	<div style="width: 624px; margin: 0 auto; padding: 1em 0;">
+		<div style="padding-bottom: 1px; color: blue;">
+			<a href="{{ app.url("index") }}">
+				Тестовый сайт
+			</a>
+		</div>
+
+		<h1 style="font-size: 200%; padding-top: 0.5em; padding-bottom: 1em;">Материал: {{ article.name }}</h1>
+
+		<address style="font-style: italic; padding-bottom: 1em;">
+			{{- article.parameters.lead -}}
+		</address>
+
+		<div class="b-text">
+			{{- article.text|markdown -}}
+		</div>
+
+		<hr/>
+
+		<ul style="text-align: center;">
+			{% if next %}
+				<li style="float: right;">
+					<a href="{{ next.url }}">
+						{{- next.name }} {{ "&rightarrow;"|raw -}}
+					</a>
+				</li>
+			{% endif %}
+			{% if prev and next %}
+				<li style="float: right; list-style: disc; margin-left: 2em;"></li>
+			{% endif %}
+			{% if prev %}
+				<li style="float: right;">
+					<a href="{{ prev.url }}">
+						{{- "&leftarrow;"|raw }} {{ prev.name -}}
+					</a>
+				</li>
+			{% endif %}
+		</ul>
+
+		<br/>
+		<hr/>
+
+		<div class="b-text">
+			<ul>
+				{% for item in items %}
+					<li>
+						<a href="{{ item.url }}">
+							{{- item.name -}}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+{%- endblock workspace -%}

@@ -29,7 +29,7 @@ class Application extends CApplication
 			$parameters = array_merge($temp, $parameters);
 		}
 
-		if (in_array($route, ['news', 'workshop', 'gallery', 'equipment', 'handbook']))
+		if (in_array($route, ['news', 'posts']))
 		{
 			if (empty($parameters['page']) || $parameters['page'] == 1)
 			{

@@ -11,18 +11,18 @@ use \Application;
 Application::getInstance(function (Application $app)
 {
 	$actionRules = [
-		'inner'         => ['/inner/{theme}_{code}.html',    'Tools\\InnerAction'],
-		'index'         => ['/index.html',                   'Page\\IndexAction'],
+		'inner'   => ['/inner/{theme}_{code}.html',    'Tools\\InnerAction'],
+		'index'   => ['/index.html',                   'Page\\IndexAction'],
+		'heading' => ['/{heading}/{page}index.html',   'Page\\HeadingAction'],
+		'article' => ['/{heading}/{code}.html',        'Page\\ArticleAction'],
 	];
 
 	$assertRules = [
-		'id'        => '\\d+',
-		'code'      => '[a-z][a-z0-9]*([-_.][a-z0-9]+)*',
-		'page'      => '(\\d+/)?',
-		'theme'     => '(.+)?',
-		'heading_w' => 'holster|pounch|accessories|knife|paracord',
-		'heading_e' => 'maxpedition',
-		'heading_h' => 'pistol|instructions',
+		'id'      => '\\d+',
+		'code'    => '[a-z][a-z0-9]*([-_.][a-z0-9]+)*',
+		'page'    => '(\\d+/)?',
+		'theme'   => '(.+)?',
+		'heading' => 'news|posts',
 	];
 
 	$convertRules = [

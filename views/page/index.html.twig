@@ -1,0 +1,32 @@
+{% extends "layout.html.twig" %}
+
+{%- block workspace -%}
+
+	<div style="width: 624px; margin: 0 auto; padding: 1em 0;">
+		<div style="padding-bottom: 1px;">
+			Тестовый сайт
+		</div>
+
+		<h1 style="font-size: 200%; padding-top: 0.5em; padding-bottom: 1em;">Титульная страница</h1>
+
+		{% for heading in ["news", "posts"]%}
+			<a href="{{ app.url("heading", {"heading": _context[heading]["heading"]["code"], "page": ""}) }}">
+				<h2 style="font-size: 150%; padding-bottom: 1em;">
+					{{- _context[heading]["heading"]["name"] -}}
+				</h2>
+			</a>
+			<ul style="padding-bottom: 1em;">
+				{% for entity in _context[heading]["items"] %}
+					<li style="list-style: circle; margin-left: 2em;">
+						<a style="color: blue;" href="{{ entity.url }}">
+							{{- entity.name -}}
+						</a>
+					</li>
+				{% else %}
+					<li>{{- "Материалы в данном разделе отсутствуют." -}}</li>
+				{% endfor %}
+			</ul>
+		{% endfor %}
+	</div>
+
+{%- endblock workspace -%}

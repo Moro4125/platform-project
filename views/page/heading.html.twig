@@ -1,0 +1,27 @@
+{% extends "layout.html.twig" %}
+
+{%- block workspace -%}
+
+	<div style="width: 624px; margin: 0 auto; padding: 1em 0;">
+		<div style="padding-bottom: 1px; color: blue;">
+			<a href="{{ app.url("index") }}">
+				Тестовый сайт
+			</a>
+		</div>
+
+		<h1 style="font-size: 200%; padding-top: 0.5em; padding-bottom: 1em;">Рубрика: {{ heading.name }}</h1>
+
+		<ul style="padding-bottom: 1em;">
+			{% for entity in items %}
+				<li style="list-style: circle; margin-left: 2em;">
+					<a style="color: blue;" href="{{ entity.url }}">
+						{{- entity.name -}}
+					</a>
+				</li>
+			{% else %}
+				<li>{{- "Материалы в данном разделе отсутствуют." -}}</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+{%- endblock workspace -%}

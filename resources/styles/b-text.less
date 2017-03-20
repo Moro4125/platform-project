@@ -1,0 +1,290 @@
+@import url("g-consts");
+
+.b-text + .b-text_type_separated {
+  border-top: solid 1px;
+  padding: 1em 0;
+}
+
+.b-text_type_separated.b-text_type_compact {
+  padding: 0;
+}
+
+.b-text_type_partner {
+  padding: 2 * @stripe_column_padding 0 0 0;
+  font-size: 90%;
+}
+
+.b-text > h1 {
+  padding-top: 1em;
+  padding-bottom: @text_line_height;
+  font-size: 200%;
+  font-weight: 300;
+}
+
+.b-images + h1 {
+  padding-top: 0;
+}
+
+.b-text > h1:first-child,
+.b-text > h2:first-child,
+.b-text > h3:first-child,
+.b-text > h4:first-child {
+  padding-top: 0;
+}
+
+.b-text > h1:last-child,
+.b-text > h2:last-child,
+.b-text > h3:last-child,
+.b-text > h4:last-child {
+  padding-bottom: 0;
+}
+
+.b-text > h2 {
+  padding-top: 1em;
+  padding-bottom: @text_line_height;
+  font-size: 150%;
+  font-weight: 300;
+  line-height: 1 * @text_line_height;
+  margin-top: ceil(@text_line_height * 0.5);
+  margin-bottom: ceil(@text_line_height * 0.5);
+}
+
+.b-text > h3 {
+  padding-top: 1em;
+  padding-bottom: @text_line_height;
+  font-size: 120%;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.b-text > h4 {
+  padding-top: 1em;
+  padding-bottom: @text_line_height;
+  font-weight: bold;
+}
+
+.b-text > hr,
+.b-text > div > hr {
+  border: none;
+  height: 2px;
+}
+
+.b-text > h1 + hr {
+  height: 1px;
+  margin-top: -@text_line_height;
+}
+
+.b-text > p {
+  margin-bottom: @text_line_height;
+}
+
+.b-text > p:last-child {
+  margin-bottom: 0;
+}
+
+.b-text > p > strong {
+  font-weight: bold;
+}
+
+.b-text > p > a,
+.b-text > p > strong > a,
+.b-text > ul > li > a {
+  border-bottom: dotted 1px;
+}
+
+.b-text > p > a:hover,
+.b-text > p > strong > a:hover,
+.b-text > ul > li > a:hover {
+  border-bottom: solid 1px;
+}
+
+.b-text > p > img,
+.b-text > p > a > img {
+  display: block;
+  width: 624px;
+  padding: 8px;
+  margin: 0 -8px;
+  border-radius: 5px;
+
+  @media screen and (max-width: @stripe_base_width + @stripe_column_padding * 4) {
+    border-radius: 0;
+  }
+}
+
+.b-text > p > img[alt^=">"],
+.b-text > p > a > img[alt^=">"] {
+  float: right;
+  width: 300px;
+  margin: -7px -8px 16px 8px;
+}
+
+.b-text > p > img[alt^="<"],
+.b-text > p > a > img[alt^="<"] {
+  float: left;
+  width: 300px;
+  margin: -7px 8px 16px -8px;
+}
+
+.b-text > p > img[alt^="="],
+.b-text > p > a > img[alt^="="] {
+  width: 450px;
+  margin: -7px auto 0 auto;
+}
+
+.b-text > p > img[alt^="<"] + img[alt^=">"] {
+  margin-left: 0;
+}
+
+.b-text > p > img + img {
+  margin-top: -14px;
+}
+
+.b-text > p > a > abbr,
+.b-text > p > strong > abbr,
+.b-text > p > abbr {
+  white-space: nowrap;
+}
+
+.b-text > dl {
+  padding-bottom: (@text_line_height / 3) * 2;
+}
+
+.b-text > dl > dt {
+  padding-bottom: @text_line_height / 3;
+}
+
+.b-text > dl > dd {
+  padding-left: 2em;
+  padding-bottom: @text_line_height / 3;
+  margin-top: -@text_line_height / 3;
+}
+
+.b-text > ul,
+.b-text > ul > li > ul,
+.b-text > ul > li > ul > li > ul,
+.b-text > ol,
+.b-text > ol > li > ol,
+.b-text > ol > li > ol > li > ol {
+  padding-left: 2em;
+  padding-bottom: @text_line_height;
+}
+
+.b-text > ul > li + li,
+.b-text > ul > li > ul > li + li,
+.b-text > ul > li > ul > li > ul > li + li,
+.b-text > ol > li + li,
+.b-text > ol > li > ol > li + li,
+.b-text > ol > li > ol > li > ol > li + li {
+  padding-top: ceil(@text_line_height * 0.25);
+}
+
+.b-text > ul > li,
+.b-text > ul > li > ul > li,
+.b-text > ul > li > ul > li > ul > li {
+  list-style: disc outside;
+}
+
+.b-text > ol > li,
+.b-text > ol > li > ol > li,
+.b-text > ol > li > ol > li > ol > li {
+  list-style: decimal outside;
+}
+
+sup {
+  font-size: 64%;
+  vertical-align: super;
+}
+
+.b-text > .footnotes {
+  font-size: 80%;
+  margin-bottom: 1em;
+}
+
+.b-text > .footnotes > ol > li {
+  list-style: decimal;
+  margin-left: 2em;
+}
+
+.b-text > table {
+  border-radius: 5px;
+  width: 640px;
+  margin: 0 -8px 1em -8px;
+  @media screen and (max-width: @stripe_base_width + @stripe_column_padding * 4) {
+    border-radius: 0;
+  }
+}
+
+.b-text > table > tbody > tr > td,
+.b-text > table > thead > tr > th {
+  padding: 4px 8px;
+}
+
+.b-text > table > thead > tr > th:first-child {
+  border-top-left-radius: 5px;
+  @media screen and (max-width: @stripe_base_width + @stripe_column_padding * 4) {
+    border-top-left-radius: 0;
+  }
+}
+
+.b-text > table > thead > tr > th:last-child {
+  border-top-right-radius: 5px;
+  @media screen and (max-width: @stripe_base_width + @stripe_column_padding * 4) {
+    border-top-right-radius: 0;
+  }
+}
+
+.b-text > table > thead > tr > th {
+  border-bottom: solid 2px;
+  font-weight: 300;
+}
+
+.b-text > table > tbody > tr > td {
+  border-top: solid 1px;
+}
+
+.b-stripe__column_type_main > .b-text > iframe {
+  width: 624px;
+  height: 351px;
+  padding: @stripe_column_padding;
+  margin: 0 -@stripe_column_padding 1em -@stripe_column_padding;
+  border-radius: 5px;
+
+  @media screen and (max-width: @stripe_base_width + @stripe_column_padding * 4) {
+    border-radius: 0;
+  }
+}
+
+.b-text_type_info {
+  font-size: 85%;
+  text-align: justify;
+}
+
+.b-text_type_cost {
+  font-size: 200%;
+  font-weight: 300;
+  text-align: center;
+}
+
+.b-text_type_cost:after {
+  content: " руб.";
+}
+
+.b-text_type_footer {
+  font-size: 75%;
+  text-align: center;
+  padding-bottom: 2em;
+}
+
+.b-text_type_tiles-header {
+  border-bottom: solid 1px;
+  margin-top: 2em;
+}
+
+.b-text__attachment {
+  border-top: dotted 2px;
+  padding-top: 0.5em;
+}
+
+.b-text__attachment > li > a {
+  border-bottom: dotted 1px;
+}
