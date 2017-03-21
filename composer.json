@@ -15,6 +15,10 @@
   },
   "require": {
     "php": ">=5.5",
+    "ext-pdo_sqlite": "*",
+    "ext-mbstring": "*",
+    "ext-curl": "*",
+    "ext-gd": "*",
     "moro/platform-cms": "~2.0",
     "moro/platform-cms-installer": "~1.0",
     "leafo/lessphp": "~0.5"
@@ -68,5 +72,8 @@
         }
       }
     }
+  },
+  "scripts": {
+    "post-create-project-cmd": "vendor/bin/migrations.php migrate"
   }
 }
