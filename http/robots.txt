@@ -1,10 +1,12 @@
 User-agent: Googlebot
+Disallow: /action
 Disallow: /admin
 Disallow: /inner
 
 Sitemap: http://localhost/sitemap.xml
 
 User-agent: *
+Disallow: /action
 Disallow: /admin
 Disallow: /inner
 

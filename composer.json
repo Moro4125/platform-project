@@ -74,6 +74,8 @@
     }
   },
   "scripts": {
-    "post-create-project-cmd": "vendor/bin/migrations.php migrate"
+    "post-create-project-cmd": "php -f vendor/moro/team-migrations-common/bin/migrations.php -- migrate",
+    "post-install-cmd":        "php -f vendor/moro/team-migrations-common/bin/migrations.php -- migrate",
+    "post-update-cmd":         "php -f vendor/moro/team-migrations-common/bin/migrations.php -- migrate"
   }
 }
