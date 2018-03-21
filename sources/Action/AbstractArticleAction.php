@@ -77,6 +77,9 @@ abstract class AbstractArticleAction extends AbstractAction
 			$this->_headers[Application::HEADER_CACHE_TAGS].= ',art-'.$item['id'];
 		}
 
+		$next && $this->_headers[Application::HEADER_CACHE_TAGS].= ',art-'.$next['id'];
+		$prev && $this->_headers[Application::HEADER_CACHE_TAGS].= ',art-'.$prev['id'];
+
 		$attachmentList = $service->selectAttachmentByEntity($entity);
 
 		return [

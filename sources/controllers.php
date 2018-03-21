@@ -13,6 +13,7 @@ Application::getInstance(function (Application $app)
 	$actionRules = [
 		'inner'   => ['/inner/{theme}_{code}.html',    'Tools\\InnerAction'],
 		'index'   => ['/index.html',                   'Page\\IndexAction'],
+		'static'  => ['/{code}.html',                  'Page\\StaticAction'],
 		'heading' => ['/{heading}/{page}index.html',   'Page\\HeadingAction'],
 		'article' => ['/{heading}/{code}.html',        'Page\\ArticleAction'],
 	];

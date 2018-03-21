@@ -33,7 +33,7 @@ class IndexAction extends AbstractAction
 
 		foreach (['news', 'posts'] as $headingCode)
 		{
-			if (!$headings = $app->getServiceTags()->selectEntities(null, null, null, 'tag', 'heading:'.$headingCode))
+			if (!$headings = $app->getServiceTags()->selectEntities(null, 10, null, 'tag', 'heading:'.$headingCode))
 			{
 				throw new NotFoundHttpException(sprintf(self::MSG_HEADING_NOT_FOUND, $headingCode));
 			}
